@@ -4,10 +4,18 @@ const { /*exec,*/ execSync } = require('child_process')
 //const net = require('net')
 //const delay = require('delay')
 
-const nfc = async () => {
+const nfcSync = async () => {
   console.log((await execSync(`python3 testNfc.py`)).toString().replace(/\n/,''))
   nfc()
 }
+
+const nfc = async () => {
+  exec(`sudo python3 /home/rinkei/devSpace/night-lamp/test-nfc/testNfc.py`,(err, stdout, stderr)=>{
+    console.log(stdout)
+    nfc()
+  })
+}
+
 nfc()
 
 /*
