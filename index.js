@@ -1,6 +1,6 @@
 'use strict'
 
-const { /*exec,*/ execSync } = require('child_process')
+const { exec, execSync } = require('child_process')
 //const net = require('net')
 //const delay = require('delay')
 
@@ -10,8 +10,8 @@ const nfcSync = async () => {
 }
 
 const nfc = async () => {
-  exec(`sudo python3 /home/rinkei/devSpace/night-lamp/test-nfc/testNfc.py`,(err, stdout, stderr)=>{
-    console.log(stdout)
+  exec(`python3 testNfc.py`,(err, stdout, stderr)=>{
+    console.log(stdout.replace(/\n/,''))
     nfc()
   })
 }
